@@ -1,16 +1,19 @@
+#specify the based image
 FROM python:3.8
 
-# set a directory for the app
-WORKDIR /usr/src/app
+#set workspace in container for the app
+WORKDIR /usr/scr/app
 
-# copy all the files to the container
+#copy all file to container workspace from host current location
 COPY . .
 
-# install dependencies
+#RUN apt-get update
+
+#install requirement
 RUN pip install --no-cache-dir -r requirements.txt
 
-# tell the port number the container should expose
+#define the port container should exposed
 EXPOSE 5000
 
-# run the command
-CMD ["python", "./app.py"]
+#run command
+CMD ["python","./app.py"]
